@@ -1,10 +1,19 @@
-FROM python:3.10-slim
+# Use the official Python image
+FROM python:3.9-slim
 
+
+# Set working directory
 WORKDIR /app
-COPY . .
 
+# Install dependencies
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
+# Copy the entire project
+COPY . .
+
+# Expose the port
 EXPOSE 7860
-CMD ["python", "app.py"]
+
+# Command to run the app with gunicorn on Hugging Face Spaces
+CMD ["gunicorn", "-b", "0.0.0.0:7860", "app:app"]
