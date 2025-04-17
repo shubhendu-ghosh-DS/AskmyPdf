@@ -1,7 +1,19 @@
 let sessionId = null;
 
+function showMessage(msg, isError = false) {
+  const messageBox = document.getElementById("message-box");
+  messageBox.style.color = isError ? "#ff4d4d" : "#00ffcc";
+  messageBox.textContent = msg;
+  setTimeout(() => messageBox.textContent = "", 4000);
+}
+
 function uploadPDF() {
   const file = document.getElementById("pdf-upload").files[0];
+  if (!file) {
+    showMessage("Please select a PDF file first.", true);
+    return;
+  }
+
   const formData = new FormData();
   formData.append("pdf", file);
 
@@ -14,22 +26,28 @@ function uploadPDF() {
     if (data.session_id) {
       sessionId = data.session_id;
       document.getElementById("chat-section").style.display = "block";
-      alert("PDF Uploaded! Session valid for 15 mins.");
+      showMessage("PDF uploaded! You can now start chatting.");
     } else {
-      alert(data.error || "Upload failed.");
+      showMessage(data.error || "Upload failed.", true);
     }
   })
   .catch(err => {
     console.error(err);
-    alert("Upload failed!");
+    showMessage("An error occurred during upload.", true);
   });
 }
 
 function sendQuestion() {
-  const question = document.getElementById("question").value;
+  const input = document.getElementById("question");
+  const question = input.value.trim();
+  if (!question) return;
+
   const formData = new FormData();
   formData.append("session_id", sessionId);
   formData.append("question", question);
+
+  addMessage(question, "user");
+  input.value = "";
 
   fetch("/query", {
     method: "POST",
@@ -37,13 +55,21 @@ function sendQuestion() {
   })
   .then(res => res.json())
   .then(data => {
-    document.getElementById("chat-box").innerHTML += `<p><b>You:</b> ${question}</p>`;
-    document.getElementById("chat-box").innerHTML += `<p><b>Bot:</b> ${data.answer}</p>`;
+    addMessage(data.answer, "bot");
   })
   .catch(err => {
     console.error(err);
-    alert("Error fetching response.");
+    addMessage("Sorry, I couldn't get a response.", "bot");
   });
+}
+
+function addMessage(msg, type) {
+  const chatBox = document.getElementById("chat-box");
+  const bubble = document.createElement("div");
+  bubble.className = `chat-bubble chat-${type}`;
+  bubble.textContent = msg;
+  chatBox.appendChild(bubble);
+  chatBox.scrollTop = chatBox.scrollHeight;
 }
 
 function clearSession() {
@@ -56,11 +82,13 @@ function clearSession() {
   })
   .then(res => res.json())
   .then(data => {
-    alert(data.message);
-    location.reload();
+    showMessage(data.message);
+    document.getElementById("chat-box").innerHTML = "";
+    document.getElementById("question").value = "";
+    document.getElementById("chat-section").style.display = "none";
   })
   .catch(err => {
     console.error(err);
-    alert("Failed to clear session.");
+    showMessage("Failed to clear session.", true);
   });
 }
