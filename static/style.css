@@ -88,6 +88,7 @@ body {
   display: flex;
   flex-direction: column;
   border-radius: 0 20px 20px 0;
+  position: relative;
 }
 
 /* Chat Header */
@@ -108,6 +109,7 @@ body {
   display: flex;
   flex-direction: column;
   overflow: hidden;
+  position: relative;
 }
 
 .chat-box {
@@ -119,6 +121,7 @@ body {
   flex-direction: column;
   gap: 10px;
   scroll-behavior: smooth;
+  max-height: calc(100% - 90px); /* Leaves space for input-section */
 }
 
 /* Individual chat message row */
@@ -144,7 +147,7 @@ body {
 }
 
 .chat-user .chat-bubble {
-  background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+  background: linear-gradient(135deg, #0066ff, #00ccff);
   color: #fff;
   border-bottom-right-radius: 0;
   align-self: flex-end;
@@ -156,13 +159,11 @@ body {
 }
 
 .chat-bot .chat-bubble {
-  background: linear-gradient(135deg, #a18cd1, #fbc2eb);
-  color: #000;
+  background: linear-gradient(135deg, #eeeeee, #dddddd);
+  color: #333;
   border-bottom-left-radius: 0;
   align-self: flex-start;
 }
-
-/* Add colorful variations randomly if you want using JS */
 
 /* INPUT SECTION */
 .input-section {
@@ -172,8 +173,10 @@ body {
   padding: 20px;
   border-top: 1px solid #ccc;
   background-color: #fff;
-  position: sticky;
+  position: absolute;
   bottom: 0;
+  left: 0;
+  right: 0;
   z-index: 10;
 }
 
