@@ -219,5 +219,14 @@ body {
 
 .chat-box {
   display: flex;
-  flex-direction: column;
+  flex-d
+
+
+/* New for showing selected file name */
+#selected-file-name {
+  text-align: center;
+  font-size: 0.85em;
+  margin-top: -10px;
+  margin-bottom: 10px;
+  color: #a0e7ff;
 }
