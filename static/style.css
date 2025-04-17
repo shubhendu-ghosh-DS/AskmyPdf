@@ -1,32 +1,138 @@
 body {
-  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   background: linear-gradient(to right, #1e3c72, #2a5298);
   color: white;
-  padding: 20px;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.container {
-  max-width: 600px;
-  margin: auto;
+.main-container {
+  display: flex;
+  height: 90vh;
+  width: 90vw;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  border-radius: 12px;
+  overflow: hidden;
 }
 
-input, button {
+/* LEFT PANEL */
+.left-panel {
+  width: 30%;
+  background-color: #1f2a40;
+  padding: 30px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-right: 1px solid #ccc;
+}
+
+.left-panel h2 {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.left-panel input,
+.left-panel button {
+  width: 100%;
+  margin-bottom: 15px;
   padding: 10px;
-  margin: 5px 0;
+  border-radius: 6px;
   border: none;
-  border-radius: 5px;
+  font-size: 1em;
 }
 
-button {
+.left-panel button {
   background-color: #4caf50;
   color: white;
   cursor: pointer;
+  transition: background 0.3s ease;
 }
 
-#chat-box {
+.left-panel button:hover {
+  background-color: #45a049;
+}
+
+.note {
+  font-size: 0.9em;
+  text-align: center;
+  color: #ccc;
+}
+
+/* RIGHT PANEL */
+.right-panel {
+  flex: 1;
+  background-color: #ffffff11;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.right-panel h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.chat-box {
+  flex: 1;
   background-color: #ffffff22;
-  padding: 10px;
   border-radius: 10px;
-  margin-top: 10px;
-  min-height: 100px;
+  padding: 20px;
+  overflow-y: auto;
+  max-height: 65vh;
+  margin-bottom: 20px;
+}
+
+.chat-box p {
+  margin: 10px 0;
+  line-height: 1.5;
+}
+
+.chat-box p b {
+  color: #ffe082;
+}
+
+.input-section {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.input-section input {
+  flex: 1;
+  padding: 10px;
+  border-radius: 6px;
+  border: none;
+  font-size: 1em;
+}
+
+.input-section button {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1em;
+  transition: background 0.3s ease;
+}
+
+.input-section button:first-of-type {
+  background-color: #4caf50;
+  color: white;
+}
+
+.input-section button:first-of-type:hover {
+  background-color: #43a047;
+}
+
+.input-section .clear-btn {
+  background-color: #f44336;
+  color: white;
+}
+
+.input-section .clear-btn:hover {
+  background-color: #d32f2f;
 }
