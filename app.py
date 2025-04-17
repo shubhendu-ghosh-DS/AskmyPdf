@@ -16,7 +16,7 @@ def upload():
         return jsonify({"error": "No file uploaded"}), 400
 
     files = {"files": (file.filename, file.stream, file.content_type)}
-    response = requests.post(f"{BACKEND_URL}/upload/", files=files)
+    response = requests.post(f"{BACKEND_URL}/upload", files=files)
 
     return jsonify(response.json())
 
@@ -26,12 +26,12 @@ def query():
     question = request.form["question"]
 
     data = {"session_id": session_id, "question": question}
-    response = requests.post(f"{BACKEND_URL}/query/", data=data)
+    response = requests.post(f"{BACKEND_URL}/query", data=data)
 
     return jsonify(response.json())
 
 @app.route("/clear", methods=["POST"])
 def clear():
     session_id = request.form["session_id"]
-    response = requests.post(f"{BACKEND_URL}/clear/", data={"session_id": session_id})
+    response = requests.post(f"{BACKEND_URL}/clear", data={"session_id": session_id})
     return jsonify(response.json())
