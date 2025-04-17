@@ -98,7 +98,9 @@ function addMessage(message, sender, isMarkdown = false) {
 }
 
 function clearSession() {
-  fetch("/clear", { method: "POST" })
+  fetch("/clear", { method: "POST",
+    body: formData
+  })
     .then(() => {
       sessionId = null;
       document.getElementById("chat-box").innerHTML = "";
