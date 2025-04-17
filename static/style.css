@@ -3,7 +3,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  background: linear-gradient(135deg, #667eea, #764ba2);
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
   color: #fff;
   height: 100vh;
   display: flex;
@@ -16,25 +16,25 @@ body {
   display: flex;
   height: 92vh;
   width: 92vw;
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+  background: rgba(255, 255, 255, 0.07);
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
+  box-shadow: 0 25px 45px rgba(0, 0, 0, 0.3);
   border-radius: 20px;
   overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.15);
 }
 
 /* LEFT PANEL */
 .left-panel {
   width: 30%;
-  background: linear-gradient(180deg, #1f2a40, #27364e);
+  background: linear-gradient(180deg, #1c1c3c, #2e2e4d);
   padding: 30px 20px;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  border-right: 1px solid rgba(255, 255, 255, 0.2);
   color: #fff;
+  border-right: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .left-panel h2 {
@@ -42,6 +42,7 @@ body {
   text-align: center;
   font-size: 1.8em;
   font-weight: bold;
+  color: #ffeb3b;
 }
 
 .left-panel input,
@@ -49,41 +50,79 @@ body {
   width: 100%;
   margin-bottom: 15px;
   padding: 12px;
-  border-radius: 10px;
+  border-radius: 12px;
   border: none;
   font-size: 1em;
   outline: none;
 }
 
 .left-panel input {
-  background-color: #f5f5f5;
+  background-color: #fff;
   color: #000;
 }
 
 .left-panel button {
-  background: linear-gradient(135deg, #00c9ff, #92fe9d);
-  color: #000;
+  background: linear-gradient(135deg, #12c2e9, #c471ed, #f64f59);
+  color: white;
   font-weight: bold;
   cursor: pointer;
   transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
 .left-panel button:hover {
   transform: scale(1.05);
-  background: linear-gradient(135deg, #00c6ff, #0072ff);
-  color: #fff;
+  background: linear-gradient(135deg, #f64f59, #c471ed, #12c2e9);
+}
+
+/* Upload Label */
+.file-upload-label {
+  display: inline-block;
+  background: linear-gradient(135deg, #ffecd2, #fcb69f);
+  color: #222;
+  font-weight: bold;
+  padding: 12px;
+  border-radius: 12px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-bottom: 15px;
+}
+
+.file-upload-label input {
+  display: none;
+}
+
+.file-upload-label:hover {
+  background: linear-gradient(135deg, #d4fc79, #96e6a1);
+}
+
+/* Selected file */
+#selected-file-name {
+  text-align: center;
+  font-size: 0.85em;
+  margin-top: -10px;
+  margin-bottom: 10px;
+  color: #a0e7ff;
 }
 
 .note {
   font-size: 0.9em;
   text-align: center;
-  color: #ddd;
+  color: #e0e0e0;
+}
+
+.message-box {
+  margin-top: 10px;
+  font-size: 0.9em;
+  color: #ffeb3b;
+  text-align: center;
 }
 
 /* RIGHT PANEL */
 .right-panel {
   flex: 1;
-  background-color: rgba(255, 255, 255, 0.05);
+  background: rgba(255, 255, 255, 0.05);
   padding: 30px;
   display: flex;
   flex-direction: column;
@@ -94,23 +133,26 @@ body {
 .right-panel h1 {
   text-align: center;
   margin-bottom: 20px;
-  font-size: 2em;
+  font-size: 2.2em;
+  color: #ffe082;
+  font-weight: bold;
 }
 
+/* Chat */
 .chat-box {
   flex: 1;
-  background: rgba(255, 255, 255, 0.15);
-  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
   padding: 20px;
   overflow-y: auto;
   max-height: 65vh;
   margin-bottom: 20px;
-  color: #f1f1f1;
   display: flex;
   flex-direction: column;
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
-/* Individual chat message row */
+/* Individual chat message */
 .chat-message {
   display: flex;
   margin: 10px 0;
@@ -124,9 +166,10 @@ body {
   font-size: 1em;
   line-height: 1.5;
   word-wrap: break-word;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
-/* User message */
+/* User */
 .chat-user {
   justify-content: flex-end;
 }
@@ -138,13 +181,13 @@ body {
   align-self: flex-end;
 }
 
-/* Bot message */
+/* Bot */
 .chat-bot {
   justify-content: flex-start;
 }
 
 .chat-bot .chat-bubble {
-  background: linear-gradient(135deg, #e0c3fc, #8ec5fc);
+  background: linear-gradient(135deg, #fbc2eb, #a6c1ee);
   color: #000;
   border-bottom-left-radius: 0;
   align-self: flex-start;
@@ -163,9 +206,10 @@ body {
   border-radius: 10px;
   border: none;
   font-size: 1em;
-  background-color: #f8f8f8;
+  background-color: #ffffff;
   color: #000;
   outline: none;
+  box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .input-section button {
@@ -176,61 +220,25 @@ body {
   font-size: 1em;
   font-weight: bold;
   transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
+/* Send Button */
 .input-section button:first-of-type {
-  background: linear-gradient(135deg, #ff758c, #ff7eb3);
-  color: white;
+  background: linear-gradient(135deg, #00f2fe, #4facfe);
+  color: #fff;
 }
 
 .input-section button:first-of-type:hover {
-  background: linear-gradient(135deg, #fc5c7d, #6a82fb);
+  background: linear-gradient(135deg, #43e97b, #38f9d7);
 }
 
+/* Clear Button */
 .input-section .clear-btn {
-  background: linear-gradient(135deg, #f44336, #e57373);
+  background: linear-gradient(135deg, #f85032, #e73827);
   color: white;
 }
 
 .input-section .clear-btn:hover {
-  background: linear-gradient(135deg, #d32f2f, #ef5350);
-}
-
-/* File input label */
-.file-upload-label {
-  display: inline-block;
-  background: linear-gradient(135deg, #ff9a9e, #fad0c4);
-  color: #333;
-  font-weight: bold;
-  padding: 12px;
-  border-radius: 10px;
-  text-align: center;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  margin-bottom: 15px;
-}
-
-.file-upload-label input {
-  display: none;
-}
-
-.file-upload-label:hover {
-  background: linear-gradient(135deg, #fbc2eb, #a6c1ee);
-}
-
-/* Message box for status */
-.message-box {
-  margin-top: 10px;
-  font-size: 0.9em;
-  color: #ffeb3b;
-  text-align: center;
-}
-
-/* Selected file name */
-#selected-file-name {
-  text-align: center;
-  font-size: 0.85em;
-  margin-top: -10px;
-  margin-bottom: 10px;
-  color: #a0e7ff;
+  background: linear-gradient(135deg, #d31027, #ea384d);
 }
