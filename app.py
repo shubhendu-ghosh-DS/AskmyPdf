@@ -30,7 +30,7 @@ def query():
 
     return jsonify(response.json())
 
-@app.route("/clear", methods=["POST"])
+@app.route("/clear/", methods=["POST"])
 def clear():
     session_id = request.form["session_id"]
     response = requests.post(f"{BACKEND_URL}/clear/", data={"session_id": session_id})
