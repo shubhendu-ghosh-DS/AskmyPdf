@@ -107,9 +107,11 @@ body {
   display: flex;
   flex-direction: column;
   overflow-y: auto; /* Updated: now the container is scrollable */
-  position: relative;
   padding: 25px;
   gap: 10px;
+  height: 100vh;
+  z-index: 1;
+  position: relative;
 }
 
 /* Removed scroll and height limit from chat-box */
