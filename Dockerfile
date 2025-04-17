@@ -9,4 +9,4 @@ COPY app/ app/
 
 EXPOSE 7860
 
-CMD ["python", "app/main.py"]
+CMD ["python", "app.py"]
