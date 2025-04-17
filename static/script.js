@@ -64,7 +64,7 @@ function sendQuestion() {
   addMessage(question, "user");
   input.value = "";
 
-  fetch("/query/", {
+  fetch("/query", {
     method: "POST",
     body: formData
   })
