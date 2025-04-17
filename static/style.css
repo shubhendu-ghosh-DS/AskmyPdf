@@ -271,3 +271,16 @@ body {
     transform: translateY(0);
   }
 }
+
+.chat-container::-webkit-scrollbar {
+  width: 8px;
+}
+
+.chat-container::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, #ccc, #888);
+  border-radius: 10px;
+}
+
+.chat-container::-webkit-scrollbar-track {
+  background: #f0f0f0;
+}
