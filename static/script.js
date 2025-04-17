@@ -9,7 +9,6 @@ function showMessage(msg, isError = false, persist = false) {
   }
 }
 
-// Show selected file name
 document.getElementById("pdf-upload").addEventListener("change", function () {
   const file = this.files[0];
   const displayName = document.getElementById("selected-file-name");
@@ -70,44 +69,43 @@ function sendQuestion() {
   })
     .then(res => res.json())
     .then(data => {
-      addMessage(data.answer, "bot", true);  // true to render as markdown/html
+      addMessage(data.answer, "bot", true);  // render markdown
     })
     .catch(err => {
       console.error(err);
-      addMessage("Sorry, I couldn't get a response.", "bot");
+      addMessage("Error fetching response from server.", "bot");
     });
 }
 
-function addMessage(msg, type, isMarkdown = false) {
+function addMessage(message, sender, isMarkdown = false) {
   const chatBox = document.getElementById("chat-box");
+
+  const messageRow = document.createElement("div");
+  messageRow.classList.add("chat-message", sender === "user" ? "chat-user" : "chat-bot");
+
   const bubble = document.createElement("div");
-  bubble.className = `chat-bubble chat-${type}`;
+  bubble.classList.add("chat-bubble");
+
   if (isMarkdown) {
-    bubble.innerHTML = marked.parse(msg);  // Render markdown as HTML
+    bubble.innerHTML = marked.parse(message || "");
   } else {
-    bubble.textContent = msg;
+    bubble.textContent = message;
   }
-  chatBox.appendChild(bubble);
+
+  messageRow.appendChild(bubble);
+  chatBox.appendChild(messageRow);
   chatBox.scrollTop = chatBox.scrollHeight;
 }
 
 function clearSession() {
-  const formData = new FormData();
-  formData.append("session_id", sessionId);
-
-  fetch("/clear", {
-    method: "POST",
-    body: formData
-  })
-    .then(res => res.json())
-    .then(data => {
-      showMessage(data.message);
+  fetch("/clear", { method: "POST" })
+    .then(() => {
+      sessionId = null;
       document.getElementById("chat-box").innerHTML = "";
-      document.getElementById("question").value = "";
       document.getElementById("chat-section").style.display = "none";
+      showMessage("Session cleared.");
     })
-    .catch(err => {
-      console.error(err);
+    .catch(() => {
       showMessage("Failed to clear session.", true);
     });
 }
