@@ -3,7 +3,7 @@ import requests
 
 app = Flask(__name__)
 
-BACKEND_URL = "http://backend:8000"  # or your deployed FastAPI backend
+BACKEND_URL = "https://shubhendu-ghosh-polydocs.hf.space"  # or your deployed FastAPI backend
 
 @app.route("/")
 def index():
