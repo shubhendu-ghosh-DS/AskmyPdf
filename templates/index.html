@@ -8,23 +8,29 @@
 </head>
 <body>
   <div class="main-container">
-    <!-- LEFT PANEL: PDF Upload -->
+    <!-- LEFT PANEL -->
     <div class="left-panel">
       <h2>Upload PDF</h2>
-      <input type="file" id="pdf-upload" accept="application/pdf"/>
+      
+      <label class="file-upload-label">
+        <input type="file" id="pdf-upload" accept="application/pdf"/>
+        <span>Select PDF</span>
+      </label>
+      
       <button onclick="uploadPDF()">Upload</button>
       <p class="note">Session is valid for 15 mins after upload.</p>
+      <div id="message-box" class="message-box"></div>
     </div>
 
-    <!-- RIGHT PANEL: Chat Interface -->
+    <!-- RIGHT PANEL -->
     <div class="right-panel">
       <h1>Chat with Your PDF</h1>
       <div id="chat-section" style="display:none;">
         <div class="chat-box" id="chat-box"></div>
         <div class="input-section">
-          <input type="text" id="question" placeholder="Ask something..."/>
+          <input type="text" id="question" placeholder="Ask something..." autocomplete="off"/>
           <button onclick="sendQuestion()">Send</button>
-          <button class="clear-btn" onclick="clearSession()">Clear Session</button>
+          <button class="clear-btn" onclick="clearSession()">Clear</button>
         </div>
       </div>
     </div>
