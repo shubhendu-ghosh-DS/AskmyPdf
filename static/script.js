@@ -5,17 +5,24 @@ function uploadPDF() {
   const formData = new FormData();
   formData.append("pdf", file);
 
-  fetch("https://shubhendu-ghosh-polydocs.hf.space/upload/", {
+  fetch("/upload", {
     method: "POST",
     body: formData
   })
   .then(res => res.json())
   .then(data => {
-    sessionId = data.session_id;
-    document.getElementById("chat-section").style.display = "block";
-    alert("PDF Uploaded! Session valid for 15 mins.");
+    if (data.session_id) {
+      sessionId = data.session_id;
+      document.getElementById("chat-section").style.display = "block";
+      alert("PDF Uploaded! Session valid for 15 mins.");
+    } else {
+      alert(data.error || "Upload failed.");
+    }
   })
-  .catch(err => alert("Upload failed!"));
+  .catch(err => {
+    console.error(err);
+    alert("Upload failed!");
+  });
 }
 
 function sendQuestion() {
@@ -24,7 +31,7 @@ function sendQuestion() {
   formData.append("session_id", sessionId);
   formData.append("question", question);
 
-  fetch("https://shubhendu-ghosh-polydocs.hf.space/query/", {
+  fetch("/query", {
     method: "POST",
     body: formData
   })
@@ -33,14 +40,17 @@ function sendQuestion() {
     document.getElementById("chat-box").innerHTML += `<p><b>You:</b> ${question}</p>`;
     document.getElementById("chat-box").innerHTML += `<p><b>Bot:</b> ${data.answer}</p>`;
   })
-  .catch(err => alert("Error fetching response."));
+  .catch(err => {
+    console.error(err);
+    alert("Error fetching response.");
+  });
 }
 
 function clearSession() {
   const formData = new FormData();
   formData.append("session_id", sessionId);
 
-  fetch("https://shubhendu-ghosh-polydocs.hf.space/clear/", {
+  fetch("/clear", {
     method: "POST",
     body: formData
   })
@@ -48,5 +58,9 @@ function clearSession() {
   .then(data => {
     alert(data.message);
     location.reload();
+  })
+  .catch(err => {
+    console.error(err);
+    alert("Failed to clear session.");
   });
 }
