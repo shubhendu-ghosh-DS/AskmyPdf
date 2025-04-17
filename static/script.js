@@ -5,7 +5,7 @@ function uploadPDF() {
   const formData = new FormData();
   formData.append("pdf", file);
 
-  fetch("/upload", {
+  fetch("https://shubhendu-ghosh-polydocs.hf.space/upload/", {
     method: "POST",
     body: formData
   })
@@ -24,7 +24,7 @@ function sendQuestion() {
   formData.append("session_id", sessionId);
   formData.append("question", question);
 
-  fetch("/query", {
+  fetch("https://shubhendu-ghosh-polydocs.hf.space/query/", {
     method: "POST",
     body: formData
   })
@@ -40,7 +40,7 @@ function clearSession() {
   const formData = new FormData();
   formData.append("session_id", sessionId);
 
-  fetch("/clear", {
+  fetch("https://shubhendu-ghosh-polydocs.hf.space/clear/", {
     method: "POST",
     body: formData
   })
