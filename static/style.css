@@ -1,0 +1,32 @@
+body {
+  font-family: Arial, sans-serif;
+  background: linear-gradient(to right, #1e3c72, #2a5298);
+  color: white;
+  padding: 20px;
+}
+
+.container {
+  max-width: 600px;
+  margin: auto;
+}
+
+input, button {
+  padding: 10px;
+  margin: 5px 0;
+  border: none;
+  border-radius: 5px;
+}
+
+button {
+  background-color: #4caf50;
+  color: white;
+  cursor: pointer;
+}
+
+#chat-box {
+  background-color: #ffffff22;
+  padding: 10px;
+  border-radius: 10px;
+  margin-top: 10px;
+  min-height: 100px;
+}
