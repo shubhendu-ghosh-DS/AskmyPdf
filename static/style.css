@@ -89,6 +89,7 @@ body {
   flex-direction: column;
   border-radius: 0 20px 20px 0;
   position: relative;
+  height: 100%;
 }
 
 /* Chat Header */
@@ -108,7 +109,7 @@ body {
   flex-direction: column;
   flex: 1;
   min-height: 0;
-  position: relative;
+  overflow: hidden;
 }
 
 /* Chat Container */
@@ -177,8 +178,8 @@ body {
   padding: 20px;
   border-top: 1px solid #ccc;
   background-color: #fff;
-  height: 80px;
   flex-shrink: 0;
+  height: 80px;
 }
 
 .input-section input {
@@ -273,6 +274,7 @@ body {
   }
 }
 
+/* Scrollbar styles */
 .chat-container::-webkit-scrollbar {
   width: 8px;
 }
