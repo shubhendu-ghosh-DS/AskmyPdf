@@ -1,138 +1,102 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
   padding: 0;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  background: linear-gradient(to right, #1e3c72, #2a5298);
-  color: white;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(to right, #eef2f3, #8e9eab);
   height: 100vh;
   display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
-.main-container {
-  display: flex;
-  height: 90vh;
-  width: 90vw;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-  border-radius: 12px;
-  overflow: hidden;
-}
-
-/* LEFT PANEL */
 .left-panel {
   width: 30%;
-  background-color: #1f2a40;
-  padding: 30px 20px;
+  background: #ffffffdd;
+  padding: 30px;
+  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
   justify-content: center;
-  border-right: 1px solid #ccc;
 }
 
-.left-panel h2 {
-  margin-bottom: 20px;
-  text-align: center;
+.right-panel {
+  width: 70%;
+  padding: 40px;
+  overflow-y: auto;
+  color: #333;
 }
 
-.left-panel input,
-.left-panel button {
-  width: 100%;
-  margin-bottom: 15px;
+h1 {
+  font-size: 2.5rem;
+  color: #003366;
+  margin-bottom: 10px;
+}
+
+h2 {
+  font-size: 1.2rem;
+  color: #444;
+}
+
+input[type="file"] {
+  margin-top: 10px;
+  border: 1px solid #ccc;
   padding: 10px;
   border-radius: 6px;
-  border: none;
-  font-size: 1em;
+  width: 100%;
+  background: #f8f8f8;
 }
 
-.left-panel button {
-  background-color: #4caf50;
+button {
+  padding: 10px 20px;
+  margin-top: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #0352ff;
   color: white;
+  font-weight: bold;
   cursor: pointer;
   transition: background 0.3s ease;
 }
 
-.left-panel button:hover {
-  background-color: #45a049;
+button:hover {
+  background-color: #023ec1;
 }
 
-.note {
-  font-size: 0.9em;
-  text-align: center;
-  color: #ccc;
-}
-
-/* RIGHT PANEL */
-.right-panel {
-  flex: 1;
-  background-color: #ffffff11;
-  padding: 30px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-.right-panel h1 {
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-.chat-box {
-  flex: 1;
-  background-color: #ffffff22;
+#chat-box {
+  background: #ffffffcc;
   border-radius: 10px;
   padding: 20px;
+  min-height: 300px;
+  max-height: 60vh;
   overflow-y: auto;
-  max-height: 65vh;
-  margin-bottom: 20px;
+  margin-top: 20px;
+  box-shadow: 0 0 5px rgba(0,0,0,0.1);
 }
 
-.chat-box p {
+#chat-box p {
   margin: 10px 0;
   line-height: 1.5;
 }
 
-.chat-box p b {
-  color: #ffe082;
+#chat-box p b {
+  color: #0352ff;
 }
 
-.input-section {
-  display: flex;
-  gap: 10px;
-  align-items: center;
-}
-
-.input-section input {
-  flex: 1;
+#question {
+  width: 100%;
   padding: 10px;
   border-radius: 6px;
-  border: none;
-  font-size: 1em;
+  border: 1px solid #ccc;
+  margin-top: 20px;
 }
 
-.input-section button {
-  padding: 10px 15px;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  font-size: 1em;
-  transition: background 0.3s ease;
-}
-
-.input-section button:first-of-type {
-  background-color: #4caf50;
-  color: white;
-}
-
-.input-section button:first-of-type:hover {
-  background-color: #43a047;
-}
-
-.input-section .clear-btn {
-  background-color: #f44336;
-  color: white;
-}
-
-.input-section .clear-btn:hover {
-  background-color: #d32f2f;
+.footer {
+  text-align: center;
+  font-size: 0.9rem;
+  color: #888;
+  position: absolute;
+  bottom: 10px;
+  width: 100%;
 }
