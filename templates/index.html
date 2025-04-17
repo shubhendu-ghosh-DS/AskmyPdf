@@ -25,14 +25,15 @@
     <div class="right-panel">
       <h1>Chat with Your PDF</h1>
       <div id="chat-section" style="display:none;">
-        <div class="chat-box" id="chat-box"></div>
+        <div class="chat-container">
+          <div class="chat-box" id="chat-box"></div>
+        </div>
         <div class="input-section">
           <input type="text" id="question" placeholder="Ask something..." autocomplete="off"/>
           <button onclick="sendQuestion()">Send</button>
           <button class="clear-btn" onclick="clearSession()">Clear</button>
         </div>
       </div>
-    </div>
   </div>
 
   <!-- Markdown rendering -->
