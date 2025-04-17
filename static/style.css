@@ -12,6 +12,7 @@ body {
   overflow: hidden;
 }
 
+/* MAIN CONTAINER */
 .main-container {
   display: flex;
   height: 92vh;
