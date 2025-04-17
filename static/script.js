@@ -98,7 +98,11 @@ function addMessage(message, sender, isMarkdown = false) {
 }
 
 function clearSession() {
-  fetch("/clear", { method: "POST",
+  const formData = new FormData();
+  formData.append("session_id", sessionId);
+
+  fetch("/clear", {
+    method: "POST",
     body: formData
   })
     .then(() => {
