@@ -11,12 +11,10 @@
     <!-- LEFT PANEL -->
     <div class="left-panel">
       <h2>Upload PDF</h2>
-      
       <label class="file-upload-label">
         <input type="file" id="pdf-upload" accept="application/pdf"/>
         <span>Select PDF</span>
       </label>
-      
       <button onclick="uploadPDF()">Upload</button>
       <p id="selected-file-name"></p>
       <p class="note">Session is valid for 15 mins after upload.</p>
@@ -37,8 +35,8 @@
     </div>
   </div>
 
+  <!-- Markdown rendering -->
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-
   <script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>
 </html>
