@@ -9,35 +9,51 @@
 <body>
   <div class="main-container">
     <!-- LEFT PANEL -->
-    <div class="left-panel">
+    <aside class="left-panel">
       <h2>Upload PDF</h2>
-      <label class="file-upload-label">
-        <input type="file" id="pdf-upload" accept="application/pdf"/>
-        <span>Select PDF</span>
-      </label>
-      <button onclick="uploadPDF()">Upload</button>
-      <p id="selected-file-name"></p>
+
+      <div class="file-upload-group">
+        <label class="file-upload-label">
+          <input type="file" id="pdf-upload" accept="application/pdf" />
+          <span>Select PDF</span>
+        </label>
+        <button type="button" onclick="uploadPDF()">Upload</button>
+      </div>
+
+      <p id="selected-file-name" class="file-name"></p>
       <p class="note">Session is valid for 15 mins after upload.</p>
+
       <div id="message-box" class="message-box"></div>
-    </div>
+    </aside>
 
     <!-- RIGHT PANEL -->
-    <div class="right-panel">
-      <h1>Chat with Your PDF</h1>
-      <div id="chat-section" class="chat-section">
-        <div class="chat-container" id="chat-container">
-          <div class="chat-box" id="chat-box"></div>
+    <main class="right-panel">
+      <header class="chat-header">
+        <h1>Chat with Your PDF</h1>
+        <button type="button" class="clear-btn top-clear-btn" onclick="clearSession()">Clear</button>
+      </header>
+
+      <section id="chat-section" class="chat-section">
+        <div id="chat-container" class="chat-container">
+          <div id="chat-box" class="chat-box"></div>
         </div>
-      </div>
-      <div class="input-section">
-        <input type="text" id="question" placeholder="Ask something..." autocomplete="off"/>
-        <button onclick="sendQuestion()">Send</button>
-        <button class="clear-btn" onclick="clearSession()">Clear</button>
-      </div>
-    </div>
+      </section>
+
+      <footer class="input-section">
+        <input
+          type="text"
+          id="question"
+          placeholder="Ask something..."
+          autocomplete="off"
+        />
+        <div class="btn-group">
+          <button type="button" onclick="sendQuestion()">Send</button>
+        </div>
+      </footer>
+    </main>
   </div>
 
-  <!-- Markdown rendering -->
+  <!-- Markdown Rendering -->
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
   <script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>
