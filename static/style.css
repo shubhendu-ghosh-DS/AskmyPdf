@@ -25,7 +25,7 @@ body {
 
 /* LEFT PANEL */
 .left-panel {
-  width: 30%;
+  width: 25%;
   background: linear-gradient(135deg, #43cea2, #185a9d);
   padding: 40px 25px;
   display: flex;
@@ -33,7 +33,7 @@ body {
   justify-content: center;
   border-right: 1px solid rgba(255, 255, 255, 0.3);
   color: #fff;
-  border-radius: 20px 0 0 20px;
+  border-radius: 20px 20px;
   box-shadow: inset -5px 0 10px rgba(0, 0, 0, 0.1);
 }
 
@@ -84,10 +84,10 @@ body {
 /* RIGHT PANEL */
 .right-panel {
   width: 70%;
-  background: #fafafa;
+  background: #eee4ff;
   display: flex;
   flex-direction: column;
-  border-radius: 0 20px 20px 0;
+  border-radius: 20px 20px;
   position: relative;
   height: 100%;
 }
@@ -103,7 +103,6 @@ body {
   flex-shrink: 0;
 }
 
-/* Chat Section Wrapper */
 .chat-section {
   display: flex;
   flex-direction: column;
@@ -112,13 +111,22 @@ body {
   overflow: hidden;
 }
 
-/* Chat Container */
 .chat-container {
   flex: 1;
   overflow-y: auto;
+  overflow-x: hidden;
   padding: 20px 25px;
   background-color: #fafafa;
   scroll-behavior: smooth;
+  height: calc(100% - 80px); /* Ensures input section does not hide messages */
+}
+
+/* Automatically scroll to bottom */
+.chat-container:after {
+  content: '';
+  display: block;
+  height: 1px;
+  margin-bottom: 1px;
 }
 
 /* Chat Box */
@@ -127,6 +135,7 @@ body {
   flex-direction: column;
   gap: 12px;
   padding-bottom: 10px;
+  flex-shrink: 0;
 }
 
 /* Individual chat message row */
@@ -164,8 +173,8 @@ body {
 }
 
 .chat-bot .chat-bubble {
-  background: linear-gradient(135deg, #eeeeee, #dddddd);
-  color: #333;
+  background: linear-gradient(135deg, #dbe9f4, #b0cde9);
+  color: #1a1a1a;
   border-bottom-left-radius: 0;
   align-self: flex-start;
 }
@@ -235,6 +244,13 @@ body {
   cursor: pointer;
   transition: all 0.3s ease;
   margin-bottom: 15px;
+  width: 95%;
+}
+
+.file-upload-label span {
+  display: block;
+  width: 100%;
+  height: 100%;
 }
 
 .file-upload-label input {
@@ -243,6 +259,7 @@ body {
 
 .file-upload-label:hover {
   background: linear-gradient(135deg, #f6d365, #fda085);
+  transform: scale(1.05);
 }
 
 /* Message box for status */
@@ -259,7 +276,7 @@ body {
   font-size: 0.9em;
   margin-top: -10px;
   margin-bottom: 10px;
-  color: #666;
+  color: #03f397;
 }
 
 /* Animations */
@@ -286,4 +303,25 @@ body {
 
 .chat-container::-webkit-scrollbar-track {
   background: #f0f0f0;
+}
+
+/* Clear button in top-right of header */
+.top-clear-btn {
+  position: absolute;
+  top: 27px;
+  right: 25px;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #ff6a00, #ee0979);
+  color: white;
+  font-weight: bold;
+  font-size: 0.95em;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 10;
+}
+
+.top-clear-btn:hover {
+  background: linear-gradient(135deg, #ff416c, #ff4b2b);
 }
