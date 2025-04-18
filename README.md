@@ -4,7 +4,7 @@
 
 It is containerized using **Docker** and deployed on **Hugging Face Spaces**.
 
-🌐 **Live Demo**: [Try AskMyPdf on Hugging Face Spaces](https://huggingface.co/spaces/shubhendu-ghosh/askmypdf)
+🌐 **Live Demo**: [Try AskMyPdf on Hugging Face Spaces](https://shubhendu-ghosh-askmypdf.hf.space)
 ![](https://github.com/shubhendu-ghosh-DS/AskmyPdf/blob/main/static/Screenshot%202025-04-18%20224314.png?raw=true)
 
 ---
